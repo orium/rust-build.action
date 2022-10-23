@@ -68,7 +68,7 @@ if [ "$TOOLCHAIN_VERSION" != "" ]; then
   rustup default "$TOOLCHAIN_VERSION" >&2
 fi
 rustup target add "$RUSTTARGET" >&2
-
+info "Using $(rustc -V)"
 
 BINARIES="$(cargo read-manifest | jq -r ".targets[] | select(.kind[] | contains(\"bin\")) | .name")"
 
